@@ -1,0 +1,163 @@
+/* Froggo game: 
+
+## Requirements ##
+
+* The game should be playable for one player.
+* The obstacles should be auto generated.
+
+## Start Screen:
+
+Game page will load on the start screen. 
+The following will be clear to the player: 
+* the game they are playing 
+* how to play the game ie keypad controls to use 
+* the rules - collisions , scoring points, lives etc 
+
+
+The start screen itself will: 
+* have a design theme ie color, font etc that runs throughout the different screens
+* It will have a title Nessie -hop 
+* a play button
+* Instructions section
+* Text showing One player only  
+
+To move the Game screen the player will need to click the Play button (will need event listener, function etc). 
+On doing this the following items will need to be removed: 
+* play button 
+* title 
+* instructions and text one player only 
+
+
+## Game screen (player has clicked play) (sounds ? )
+
+The following will be clear to the player and will need to be made: 
+* the design of the game screen as laid out in the wire drawing ie start/safe/ end zones, obstacles. 
+* to acheive the game screen a grid will be made and to ensure this is flexible to grid size changes 
+    it will be made using JS. 
+* the player counter they are going to move across the screen (look into sprite)
+* the obstacles they have to avoid. 
+* the obstacles will be continuously tracking across the screen from left to right and maybe right to left tbd 
+* the start/safe and end zone - this will be a different background colour from the rest of the screen images and this 
+    will not have any obstacles on it. 
+* 
+
+
+* the game screen will need to refresh (in a way) when either the player counter has a collision or reaches the safe zone. 
+    the player counter will be returned to the start zone
+
+
+
+
+Game screen problems: 
+* how to move the player counter around the grid (apply class to the player counter)
+* how to block out the safe/ end zones , how this will interact with the player counter  
+* how to know when the player counter reaches the end zone and has completed that go. 
+* how to vary the speed of the obstacles 
+* how to continuously generate and move obstacles across the grid and to ensure they are not in the safe end zones:
+    from the challenge notes this is likley done by having timers going and applying classes to different boxes on the 
+    grid, think about wackamole. 
+* how to recognise a collision between the player counter and the obstacle:
+    knowing where the player counter is and the obstacle is (which obstacle)(feels like the wackamole problem)
+* Tbc: player counter being on a square of an obstacle, in the video the frog rides the larger obstacles:
+    this would mean an collision is side on rather than any direction :/ TBC 
+
+
+
+
+## End screen 
+
+The following will be clear to the player: 
+* the end screen is showing (game over or completed?)
+* the players score (this will have to be recorded)
+* play again button - this cycle to the game screen 
+
+
+
+## Task list: 
+
+## start screen
+* Make a start screen:
+* Make a title : Nessie Hop 
+* Make a play button, that can be shown and removed on clicking (event listener)
+* Insert gif or image into play button
+* Make an "instructions panel" and "one player only" text that can be shown in the start screen and removed when the player clicks play. 
+* Put the relevant styling in place for the different screens 
+
+
+
+## game screen 
+Make a grid , style it
+* Make the player counter class 
+* Make the fucntionality to move the counter
+* Store the current counter position globally so it can be used outside of functions 
+
+## end screen
+
+
+TBC : 
+
+Obstacles moving both directions 
+player counter landing on an obstacle 
+lives 
+PLayer counter moving around in the direction its going 
+speeding it up ?
+
+
+
+
+-------------------------------- Variables --------------------------------
+let player position
+
+/*------------------------ Cached Element References ------------------------*/
+const grid container
+
+/*-------------------------------- Functions --------------------------------*/
+moving the player counter 
+fucntion make 
+
+/* function play(event){
+
+} */
+
+
+/* function displayResults(){
+    // Display results screen
+    resultScreen.classList.remove('hide')
+  
+    // Remove choose
+    chooseTextEl.classList.add('hide')
+  
+    // Remove buttons
+    buttonContainer.classList.add('hide')
+  
+    // display result text
+    resultTextEl.textContent = result */
+
+/* }
+
+function resetGame(){
+    // Hide results screen
+    resultScreen.classList.add('hide')
+  
+    // Show "choose"
+    chooseTextEl.classList.remove('hide')
+  
+    // Show choice buttons
+    buttonContainer.classList.remove('hide')
+  
+    // Reset result, playerChoice & computerChoice
+    result = ''
+    playerChoice = ''
+    computerChoice = ''
+  } */
+
+/*----------------------------- Event Listeners -----------------------------*/
+/* // Add a click event to each choice button
+choiceButtons.forEach(btn => {
+  btn.addEventListener('click', play)
+})
+
+// Add a click event to the play again button
+playAgainBtn.addEventListener('click', resetGame)
+
+/*-------------- */

@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  /* START SCREEN STYLING */
+  #Start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  #play-button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .instructions,
+  .note {
+    max-width: 300px;
+  }
+  
+  /* HIDE ELEMENTS */
+  .hide {
+    display: none !important;
+  }
+  
+  /* GRID WRAPPER */
+  .grid-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* GRID */
+  .grid {
+    box-shadow: 0 0 20px 0 black;
+    height: 600px;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* GRID CELLS */
+  .grid div {
+    border: 1px solid lightgray;
+  }
+  
+  /* NESSIE SPRITE (placeholder) */
+  .grid div.nessie {
+    background-image: url('Nessie.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+
+
+
+
