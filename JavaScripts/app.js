@@ -21,7 +21,7 @@ let currentPosition = startPosition
  // obstacles:  store the obstacles 
 
  const obstacles = [] 
- const obstacleRows = [6, 7, 8] 
+ const obstacleRows = [] 
  
 //  gridCells[index].class.add('obstacle')
 
@@ -54,7 +54,7 @@ function addNessie(position) {
 function removeNessie(position) {
     gridCells[position].classList.remove('nessie')
 }
-
+// ## play game ##
 function playGame() {
 
     startSection.classList.add('hide')
@@ -85,6 +85,22 @@ function moveNessie(event) {
 }
    
 }
+// ##obstacles##
+
+function createObstacle(rowIndex, length =2) {
+const startCol = Math.floor(Math.random()* (gridColums - length))
+const positionIndexes =[]
+
+for (let i = 0; i < length; i++) {
+    const index = rowIndex * gridColums + (startCol + i)
+    positionIndexes.push(index)
+    gridCells[index].classList.add('obstacle')
+  }
+
+  obstacles.push({ positions: positionIndexes, direction: 1, row: rowIndex })
+}
+
+
 
 
 // Events 
