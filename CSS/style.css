@@ -63,7 +63,7 @@
   /* Nessie sprite (placeholder) */
 
   .grid div.nessie {
-    background-image: url('Nessie.png'); 
+    background-image: url('../Other/Nessie.png'); 
     background-size: cover;
     background-repeat: no-repeat;
   }

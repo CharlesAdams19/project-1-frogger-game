@@ -18,9 +18,12 @@ const gridContainer = document.querySelector('.grid')
 
 let currentPosition = startPosition
 
- // obstacles:  add a class of obstacle to a cell
+ // obstacles:  store the obstacles 
 
- gridCells[index].class.add('obstacle')
+ const obstacles = [] 
+ const obstacleRows = [6, 7, 8] 
+ 
+//  gridCells[index].class.add('obstacle')
 
 
 
