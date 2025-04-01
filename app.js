@@ -18,6 +18,12 @@ const gridContainer = document.querySelector('.grid')
 
 let currentPosition = startPosition
 
+ // obstacles:  add a class of obstacle to a cell
+
+ gridCells[index].class.add('obstacle')
+
+
+
 // function 
 // ## Grid ##
 function generateGameScreen() {

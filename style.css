@@ -6,7 +6,8 @@
     margin: 0;
   }
   
-  /* START SCREEN STYLING */
+  /* Start screen  */
+
   #Start {
     display: flex;
     flex-direction: column;
@@ -28,12 +29,14 @@
     max-width: 300px;
   }
   
-  /* HIDE ELEMENTS */
+  /* Hide elements */
+
   .hide {
     display: none !important;
   }
   
-  /* GRID WRAPPER */
+  /* Grid wrapper */
+
   .grid-wrapper {
     min-height: 100vh;
     display: flex;
@@ -41,7 +44,8 @@
     align-items: center;
   }
   
-  /* GRID */
+  /* Grid */
+
   .grid {
     box-shadow: 0 0 20px 0 black;
     height: 600px;
@@ -50,19 +54,25 @@
     flex-wrap: wrap;
   }
   
-  /* GRID CELLS */
+  /* Grid cells */
+
   .grid div {
     border: 1px solid lightgray;
   }
   
-  /* NESSIE SPRITE (placeholder) */
+  /* Nessie sprite (placeholder) */
+
   .grid div.nessie {
     background-image: url('Nessie.png'); 
     background-size: cover;
     background-repeat: no-repeat;
   }
   
+  /* Obstacle */
 
+  .obstacle {
+    background-color: red;
 
+  }
 
 
