@@ -75,4 +75,43 @@
 
   }
 
+/* start, safe and end zones */
+.start-zone {
+background-color: purple ;
 
+}
+
+.safe-zone{
+background-color: purple
+
+}
+
+.end-zone {
+background-color: green;
+
+}
+
+
+/* End screen  */
+
+#End {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  gap: 1rem;
+}
+
+#play-again-button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Hide elements */
+
+.hide {
+  display: none !important;
+}
