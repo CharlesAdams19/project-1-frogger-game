@@ -13,11 +13,61 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 100vh;
+    padding: 2rem;
+    background-color:#f5f5f5;
+    font-family: "arial", sans-serif;
     text-align: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
+  #Start h1 {
+    font-size: 3rem;
+    color: #2d2d2d;
+    margin-bottom: 0.5rem;
+  }
+  
+  #Start h2 {
+    font-size: 2rem;
+    margin-top: 0;
+  }
+  
+  #Start .instructions {
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #play-button {
+    padding: 0.75rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #play-button:hover {
+    background-color: #388e3c;
+  }
+  
+  .note {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+
+
+
+
   #play-button {
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
@@ -38,7 +88,7 @@
   /* Grid wrapper */
 
   .grid-wrapper {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,17 +97,23 @@
   /* Grid */
 
   .grid {
+    display: grid;
+    aspect-ratio: 1 / 1;
+    width: 90vmin; /* or 600px if you prefer */
+    max-width: 600px;
     box-shadow: 0 0 20px 0 black;
-    height: 600px;
-    width: 600px;
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(20, 1fr);
   }
   
   /* Grid cells */
 
-  .grid div {
-    border: 1px solid lightgray;
+  .cell {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: black;
+    line-height: 0;
+
   }
   
   /* Nessie sprite (placeholder) */
@@ -72,25 +128,42 @@
 
   .obstacle {
     background-color: red;
+    transition: all 0.2s ease;
+
 
   }
 
 /* start, safe and end zones */
+
+.start-zone,
+.safe-zone,
+.end-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  width: 100%;
+  height: 100%; 
+}
+
 .start-zone {
 background-color: purple ;
+
 
 }
 
 .safe-zone{
-background-color: purple
+background-color: purple; 
 
 }
 
 .end-zone {
 background-color: green;
-
+font-size: 1.5rem;
+display: block;
+text-align: center;
+height: 2.5em;
 }
-
 
 /* End screen  */
 
