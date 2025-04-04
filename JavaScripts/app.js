@@ -34,7 +34,7 @@ let score = 0
 
 // obstacles 
 const obstacles = []
-const obstacleRows = [1, 2, 5, 6, 8, 18]
+const obstacleRows = [1, 2, 5, 6, 8, 12, 14, 16, 18]
 
 
 // ## Grid ##
@@ -144,6 +144,7 @@ function moveNessie(event) {
         gridWrapper.classList.add('hide')
         endSection.classList.remove('hide')
         livesDisplay.textContent = 'Fatigue: 🛌'
+        document.querySelector('#score-display-final').textContent=score
       }
     
       function win() {
