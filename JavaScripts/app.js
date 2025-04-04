@@ -27,7 +27,7 @@ const scoreDisplay = document.querySelector('#score-display')
 let currentPosition = startPosition
 let fatigue = 0
 let resetPause = false
-let score = 0 
+let score = 0
 
 
 // ## start safe and end zone ##
@@ -42,18 +42,18 @@ const obstacleRows = [1, 2, 5, 6, 8, 12, 14, 16, 18]
 function generateGameScreen() {
     const gridTemplateRows = []
     for (let row = 0; row < gridRows; row++) {
-      if (row === 0 || row === 10 || row === gridRows - 1) {
-        gridTemplateRows.push('3fr')
-      } else {
-        gridTemplateRows.push('1fr')
-      }
+        if (row === 0 || row === 10 || row === gridRows - 1) {
+            gridTemplateRows.push('3fr')
+        } else {
+            gridTemplateRows.push('1fr')
+        }
     }
     gridContainer.style.gridTemplateRows = gridTemplateRows.join(' ')
 
     for (let idx = 0; idx < totalCellCount; idx++) {
         const cell = document.createElement('div')
         cell.classList.add('cell')
-        
+
 
         const row = Math.floor(idx / gridColums)
         const isEndZone = row === 0
@@ -71,109 +71,115 @@ function generateGameScreen() {
         gridCells.push(cell)
 
     }
-    currentPosition =startPosition
+    currentPosition = startPosition
     addNessie(currentPosition)
 }
 
 
 function addNessie(position) {
-   if (gridCells[position]){
-    gridCells[position].classList.add('nessie')
-}
+    if (gridCells[position]) {
+        gridCells[position].classList.add('nessie')
+    }
 }
 
 function removeNessie(position) {
     if (gridCells[position]) {
-    gridCells[position].classList.remove('nessie')
-}
+        gridCells[position].classList.remove('nessie')
+    }
 }
 
 function moveNessie(event) {
     const pressedKey = event.code
 
-    if (pressedKey === 'ArrowUp' && currentPosition>= gridColums) {
+    if (pressedKey === 'ArrowUp' && currentPosition >= gridColums) {
         removeNessie(currentPosition)
         currentPosition -= gridColums
         addNessie(currentPosition)
-        if (gridCells[currentPosition].classList.contains('obstacle')) 
-            reset()
-        if (gridCells[currentPosition].classList.contains('end-zone')) 
+        if (gridCells[currentPosition].classList.contains('end-zone'))
             win()
 
-        }
-        else if (pressedKey === 'ArrowDown' && currentPosition + gridColums < totalCellCount) {
-            removeNessie(currentPosition)
-            currentPosition += gridColums
-            addNessie(currentPosition)
-        }
-        else if (pressedKey === 'ArrowLeft' && currentPosition % gridColums !== 0) {
-            removeNessie(currentPosition)
-            currentPosition--
-            addNessie(currentPosition)
-        }
-        else if (pressedKey === 'ArrowRight' && currentPosition % gridColums !== gridColums - 1) {
-            removeNessie(currentPosition)
-            currentPosition++
-            addNessie(currentPosition)
-        }
     }
-
-
-
-    function reset() {
-        if (resetPause) return
-        resetPause = true
-      
+    else if (pressedKey === 'ArrowDown' && currentPosition + gridColums < totalCellCount) {
         removeNessie(currentPosition)
-        currentPosition = startPosition
-        fatigue++
-      
-        if (fatigue >= 3) {
-          gameOver()
-        } else {
-          addNessie(currentPosition)
-          updateFatigueDisplay()
-        }
-      
-        setTimeout(() => {
-          resetPause = false
-        }, 2000)
-      }
-      
-      function gameOver() {
-        gridWrapper.classList.add('hide')
-        endSection.classList.remove('hide')
-        livesDisplay.textContent = 'Fatigue: 🛌'
-        document.querySelector('#score-display-final').textContent=score
-      }
-    
-      function win() {
-        updateScore()
-        removeNessie(currentPosition)
-        currentPosition = startPosition
+        currentPosition += gridColums
         addNessie(currentPosition)
-    
     }
-
-
-      function updateScore() {
-        score += 100
-        scoreDisplay.textContent = `Score: ${score}`
-      }
-
-      // ## lives display = fatigue 
-
-    function updateFatigueDisplay() {
-
-        const fatigueLevels = ['😌', '😪', '💤']
-        const display = fatigue < 3 ? fatigueLevels[fatigue] : '🛌'
-        livesDisplay.textContent = `Fatigue: ${display}`
+    else if (pressedKey === 'ArrowLeft' && currentPosition % gridColums !== 0) {
+        removeNessie(currentPosition)
+        currentPosition--
+        addNessie(currentPosition)
+        if (gridCells[currentPosition].classList.contains('obstacle')) {
+            reset();
+        }
 
     }
+    else if (pressedKey === 'ArrowRight' && currentPosition % gridColums !== gridColums - 1) {
+        removeNessie(currentPosition)
+        currentPosition++
+        addNessie(currentPosition)
+        if (gridCells[currentPosition].classList.contains('obstacle')) {
+            reset();
+        }
 
- // ##obstacles##
+    }
+}
 
- function createObstacle(rowIndex, length = 2) {
+
+
+function reset() {
+    if (resetPause) return
+    resetPause = true
+
+    removeNessie(currentPosition)
+    currentPosition = startPosition
+    fatigue++
+
+    if (fatigue >= 3) {
+        gameOver()
+    } else {
+        addNessie(currentPosition)
+        updateFatigueDisplay()
+    }
+
+    setTimeout(() => {
+        resetPause = false
+    }, 2000)
+}
+
+function gameOver() {
+    gridWrapper.classList.add('hide')
+    endSection.classList.remove('hide')
+    livesDisplay.textContent = 'Fatigue: 🛌'
+    document.querySelector('#score-display-final').textContent = score
+}
+
+function win() {
+    updateScore()
+    removeNessie(currentPosition)
+    currentPosition = startPosition
+    addNessie(currentPosition)
+
+}
+
+
+function updateScore() {
+    score += 100
+    scoreDisplay.textContent = `Score: ${score}`
+}
+
+// ## lives display = fatigue 
+
+function updateFatigueDisplay() {
+
+    const fatigueLevels = ['😌', '😪', '💤']
+    const display = fatigue < 3 ? fatigueLevels[fatigue] : '🛌'
+    livesDisplay.textContent = `Fatigue: ${display}`
+
+}
+
+// ##obstacles##
+
+function createObstacle(rowIndex, length = 2) {
     const startCol = Math.floor(Math.random() * (gridColums - length))
     const positionIndexes = []
 
@@ -210,9 +216,9 @@ function moveObstacles() {
             }
         })
         //  check for collision  with nessie 
-        if (obstacle.positions.includes(currentPosition)) 
+        if (obstacle.positions.includes(currentPosition))
             reset()
-        
+
         // add obstacle classes 
 
         obstacle.positions.forEach(index => {
@@ -222,44 +228,37 @@ function moveObstacles() {
 }
 
 
+// ## play game ##
 
-
-
-
-
-
-
-    // ## play game ##
-
-    function playGame() {
-        startSection.classList.add('hide')
-        gridWrapper.classList.remove('hide')
-        generateGameScreen()
-        updateFatigueDisplay()
-        obstacleRows.forEach(row => {
-            for (let i = 0; i < 4; i++) {
-                createObstacle(row, 2)
-            }
-
+function playGame() {
+    startSection.classList.add('hide')
+    gridWrapper.classList.remove('hide')
+    generateGameScreen()
+    updateFatigueDisplay()
+    obstacleRows.forEach(row => {
+        for (let i = 0; i < 4; i++) {
+            createObstacle(row, 2)
         }
-        )
-       
-        setInterval(moveObstacles, 1000)
+
     }
+    )
 
-   
+    setInterval(moveObstacles, 1000)
+}
 
-   
 
 
-    // Events 
 
-    playButton.addEventListener('click', playGame)
-    document.addEventListener('keydown', moveNessie)
-    playAgainButton.addEventListener('click', () => {
-        location.reload()
 
-    })
+
+// Events 
+
+playButton.addEventListener('click', playGame)
+document.addEventListener('keydown', moveNessie)
+playAgainButton.addEventListener('click', () => {
+    location.reload()
+
+})
 
 
 
@@ -290,5 +289,5 @@ function moveObstacles() {
 //  ## player counter movement ## // check for obstacles within the movement
 
 // cell.style.width = `${100 / gridColums}%`
-        // cell.style.height = `${100 / gridRows}%`
-        // cell.innerText = idx
+// cell.style.height = `${100 / gridRows}%`
+// cell.innerText = idx
