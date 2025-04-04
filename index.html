@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="./CSS/style.css">
   <title>Nessie-Hop</title>
 </head>
+
 <body>
   <header>
     <h1>Nessie-Hop</h1>
     <img src="./other/nessie.png" alt="Nessie the player character" style="display: none;">
-    <div id= "lives">Fatigue:😌 😪 💤</div>
+    <div id="lives">Fatigue:😌 😪 💤</div>
     <p id="score-display"> Score:0 </p>
   </header>
 
@@ -21,41 +22,44 @@
     <!-- Start screen  -->
     <section id="Start">
       <h2>Welcome to Nessie-Hop!</h2>
-     
+
       <p class="instructions">
         Help Nessie hop her way to safety using the arrow keys!<br>
         But watch out — crashing into the red obstacles makes her sleepy 😌 😪 💤<br>
         She only has 3 chances before drifting off to dreamland 🛌<br><br>
         Reach the green zone at the top to earn 100 points each time!
       </p>
-      
+
       <button id="play-button">Play</button>
-      
+
       <p class="note"> One player only </p>
     </section>
 
     <!-- Game grid (not shown on page load)  -->
 
-      <section class="grid-wrapper hide">
-        <div class="grid"></div>
-      </section>
+    <section class="grid-wrapper hide">
+      <div class="grid"></div>
+    </section>
 
-  <!-- End/Result screen  -->
- <section id="End" class="hide">
-  <h2>Game over!</h2>
-  <p class="end-message">
-    Nessie is fast asleep 😴<br>
-    Final Score <span id="score-display-final">0</span>
-  </p>
-  <button id="play-again-button">Play again!</button>
-</section> 
+    <!-- End/Result screen  -->
+    <section id="End" class="hide">
+      <h2>Game over!</h2>
+      <p class="end-message">
+        Nessie is fast asleep 😴<br>
+        Final Score <span id="score-display-final">0</span>
+      </p>
+      <button id="play-again-button">Play again!</button>
+    </section>
 
-    </main>
-  </body>
-  </html>
+  </main>
+</body>
+
+</html>
 
 
-    <!-- <section id="results" class="hide">
+<!-- comment out section  -->
+
+<!-- <section id="results" class="hide">
     <h2 id="result-text"></h2>
     <p id="player-choice"></p>
     <p id="computer-choice"></p>
